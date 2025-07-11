@@ -11,7 +11,7 @@ function App() {
   return (
     <div className='bg-blue-600 w-full p-8'>
     <SubjectContext.Provider value= {{subject}}>
-         <select value={subject} onChange={(e)=>setSubject(e.target.value)} className='mb-10'>
+         <select  value={subject} onChange={(e)=>setSubject(e.target.value)} className='mb-10'>
         <option value="">select option</option>
          <option value="Math">Math</option>
           <option value="Physics">Physics</option>
