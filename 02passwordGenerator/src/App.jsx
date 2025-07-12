@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useCallback, useState } from 'react'
 
 import './App.css'
 
@@ -8,7 +8,22 @@ function App() {
   const [charAllowed,setCharAllowed] = useState(false) 
   const [password,setPassword] = useState("");
 
-  
+    let passwordGenerator = useCallback(()=>{
+      let pass ="";
+      let str = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
+      if(numbAllowed) str += 1234567890
+      if (charAllowed) str += "!@#$%^&*()";
+       for(let i =0; i<=length;i++){
+        let char = Math.floor(Math.random()*str.length) +1;
+        pass += str.charAt(char);
+       }
+
+       return pass;
+    },[length,numbAllowed,charAllowed])
+
+    useCallback(()=>{
+      setPassword(passwordGenerator);
+    },[numbAllowed,length,charAllowed]);
 
 
 
@@ -21,7 +36,8 @@ function App() {
         <input type="text" 
         className='outline-none w-full px-3 '
         placeholder='enter text'
-         
+         value={password}
+        readOnly
         />
         <button className='px-2 bg-blue-500 text-white py-1'>Copy</button>
         </div>
