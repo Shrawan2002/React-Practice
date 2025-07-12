@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 
 import './App.css'
 
@@ -18,11 +18,11 @@ function App() {
         pass += str.charAt(char);
        }
 
-       return pass;
+       setPassword(pass);
     },[length,numbAllowed,charAllowed])
 
-    useCallback(()=>{
-      setPassword(passwordGenerator);
+    useEffect(()=>{
+       passwordGenerator();
     },[numbAllowed,length,charAllowed]);
 
 
@@ -44,7 +44,7 @@ function App() {
         <div className='flex text-sm gap-x-2 '>
           <div className=' flex  items-center gap-x-2 justify-center'>
             <input type="range" 
-            min={6}
+            min={8}
             max={100}
             value={length}
             className='cursor-pointer '
