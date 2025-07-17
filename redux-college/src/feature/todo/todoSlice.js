@@ -1,0 +1,5 @@
+import { createSlice } from '@reduxjs/toolkit'
+
+const initialState = {
+    todos:[{id:"abc", task: "demo-task", isDone: false}]
+}
