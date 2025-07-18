@@ -1,10 +1,13 @@
 import './App.css'
+import { store } from './app/Store'
 import Todo from './components/Todo'
-
+import {Provider} from "react-redux"
 function App() {
   return (
-    <div> React Redux Project
-      <Todo/>
+    <div> 
+      <Provider store={store}>
+        <Todo/>
+      </Provider>
     </div>
   )
 }
