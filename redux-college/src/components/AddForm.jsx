@@ -8,12 +8,15 @@ export default function AddForm(){
       
     let handleSubmit = (event)=>{
         event.preventDefault();
-           dispatch(addTodo(task));
+
+        if(!task) return
+       dispatch(addTodo(task));
+       setTask("");
     }
     return(
         <>
-       <form onClick={handleSubmit}>
-         <input type="text" value={task} onChange={(event)=> setTask(event.target.value)} />
+       <form onSubmit={handleSubmit}>
+         <input placeholder="enter your task" type="text" value={task} onChange={(event)=> setTask(event.target.value)} />
         <button >Add Task</button>
        </form>
         </>
