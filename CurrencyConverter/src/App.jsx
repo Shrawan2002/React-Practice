@@ -9,7 +9,7 @@ function App() {
     <div className='bg-green-600'>
       <h1>
         Corency converte
-        {data};
+        {data.inr}
       </h1>
     </div>
   )

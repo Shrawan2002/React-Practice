@@ -11,4 +11,5 @@ export default function useCourrencyInfo(currency){
         .then((respData)=> setData(respData[currency]));
     },[currency]);
     console.log(data);
+    return data;
 }
